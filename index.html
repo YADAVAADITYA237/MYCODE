@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Signup</title>
+    <style>
+        body{
+            font - family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .form-container {
+            max-width:400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+
+        }
+        h2 {
+      text-align: center;
+    }
+
+        label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <h2>Signup Form</h2>
+            <form id="signupForm">
+              <label>Name:</label>
+              <input type="text" id="name" required>
+        
+              <label>Email:</label>
+              <input type="email" id="email" required>
+        
+              <label>Phone:</label>
+              <input type="text" id="phone" required>
+  
+              <label>Membership Type:</label>
+              <select id="membership" required>
+                <option value="">Select</option>
+                <option value="Basic">Basic</option>
+                <option value="Premium">Premium</option>
+              </select>
+  
+              <label>Password:</label>
+              <input type="password" id="password" required>
+  
+              <div class="error" id="errorMsg"></div>
+  
+              <button type="submit">Submit</button>
+          </form>
+        </div>
+      <script>
+        const form = document.getElementById("signupForm");
+        const errorMsg = document.getElementById("errorMsg");
+    
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          const phone = document.getElementById("phone").value;
+      const password = document.getElementById("password").value;
+
+      if (isNaN(phone) || phone.length !== 10) {
+        errorMsg.textContent = "Please enter a valid 10-digit phone number.";
+      } else if (password.length < 6) {
+        errorMsg.textContent = "Password must be at least 6 characters.";
+      } else {
+        errorMsg.textContent = "";
+        alert("Form submitted successfully!");
+        form.reset();
+      }
+    });
+  </script>
+  </body>   
+</html>
